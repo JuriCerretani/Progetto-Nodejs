@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <div class="title">
+      <h1> NELLE VICINANZE </h1>
+    </div>
+
+    <div class="box-gallery">
+    <% if(files.length > 0){ %>
+      <% files.forEach(function(item){ %>
+        <div class="gallery">
+          <img class="preview" src="data:image/png|jpg;base64,<%= item.FILE %>" width="600" height="400" />
+          <div class="desc"> <p><strong>Città: </strong><% if(item.CITY!=''){%><%= item.CITY %><% }else{ %>Sconosciuta <% } %> <br> <strong>Coords:</strong> <br> <%= item.LAT %> | <%= item.LON %></p> </div>
+        </div>
+      <% }); } else { %>
+        <p style="text-align:center">Non ci sono zone inquinate nelle tue vicinanze!</p>
+      <% } %>
+
+    </div>
+  </body>
+</html>
